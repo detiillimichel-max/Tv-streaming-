@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OIO TV Player - v1.6 Estável</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#E50914">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div id="app">
+    <header class="navbar">
+      <div class="logo"><i class="fa-solid fa-play" style="color: #E50914;"></i> OIO TV</div>
+      <div class="nav-actions">
+        <button id="btn-diagnose" onclick="window.open('./diagnostico.html','_blank')" title="Ver Edges OK"><i class="fa-solid fa-stethoscope"></i></button>
+        <button id="btn-search"><i class="fa-solid fa-search"></i></button>
+        <button id="btn-profile"><i class="fa-solid fa-user-circle"></i></button>
+      </div>
+    </header>
+
+    <section id="hero" class="hero">
+      <div class="hero-slides" id="hero-slides"></div>
+      <div class="hero-dots" id="hero-dots"></div>
+      <div class="hero-status" id="hero-status">● CARREGANDO 11 EDGES OK</div>
+      <button class="hero-arrow prev" id="hero-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="hero-arrow next" id="hero-next"><i class="fa-solid fa-chevron-right"></i></button>
+    </section>
+
+    <main class="content-rows" id="content-container">
+      <div class="skeleton-row"><div class="skeleton-title"></div><div class="skeleton-cards"><div class="sk-card"></div><div class="sk-card"></div><div class="sk-card"></div></div></div>
+    </main>
+
+    <div id="player-modal" class="modal hidden">
+      <div class="modal-content">
+        <button id="modal-close"><i class="fa-solid fa-times"></i></button>
+        <div class="player-wrapper" id="player-container"></div>
+        <div class="modal-info">
+          <h2 id="modal-title"></h2>
+          <p id="modal-desc"></p>
+          <div class="player-meta" id="player-meta"></div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="#" class="nav-item active" data-tab="home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="#" class="nav-item" data-tab="filmes"><i class="fa-solid fa-film"></i><span>Filmes</span></a>
+      <a href="#" class="nav-item" data-tab="series"><i class="fa-solid fa-tv"></i><span>Series</span></a>
+      <a href="#" class="nav-item" data-tab="infantil"><i class="fa-solid fa-child"></i><span>Desenhos</span></a>
+      <a href="#" class="nav-item" data-tab="minha-lista"><i class="fa-solid fa-heart"></i><span>Lista</span></a>
+    </nav>
+  </div>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
+  <script src="script.js"></script>
+</body>
+</html>
